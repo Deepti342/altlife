@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AltLife Simulator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to right, #1e3c72, #2a5298);
+      color: white;
+      text-align: center;
+      padding: 50px;
+    }
+    input, button {
+      padding: 10px;
+      margin: 10px;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+    .result {
+      margin-top: 20px;
+      background: rgba(255,255,255,0.1);
+      padding: 20px;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1>AltLife – Simulate Your Parallel Life</h1>
+  <p>Enter your dream job:</p>
+  <input type="text" id="jobInput" placeholder="e.g., Artist, Pilot, CEO" />
+  <button onclick="showAltLife()">Predict</button>
+
+  <div class="result" id="result" style="display: none;">
+    <h2>Here's your parallel future...</h2>
+    <p id="story"></p>
+  </div>
+
+  <script>
+    function showAltLife() {
+      const job = document.getElementById('jobInput').value;
+      const resultBox = document.getElementById('result');
+      const story = document.getElementById('story');
+      const predictions = [
+        "You became a world-famous " + job + " and lived in Paris.",
+        "You worked as a " + job + " and changed thousands of lives.",
+        "You founded a startup in " + job + " and sold it for millions.",
+        "You became a bestselling author who wrote about " + job + " life.",
+        "You travelled the world while working remotely as a " + job + "."
+      ];
+      story.textContent = predictions[Math.floor(Math.random() * predictions.length)];
+      resultBox.style.display = "block";
+    }
+  </script>
+</body>
+</html>
